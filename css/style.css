@@ -1,0 +1,900 @@
+/*variabelen*/
+
+:root{
+    --white: #ffffff;
+    --gray: #eaeaea;
+    --lightblue: #68d6f7;
+    --darkblue: #2593d8;
+    --black: #272727;
+}
+
+::selection{
+    background-color: var(--darkblue);
+    color: var(--white);
+}
+
+img::selection{
+    background-color: var(--lightblue);
+}
+
+body{
+    background-color: var(--white);
+    height: 200vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*darkmode aanpassingen*/
+
+.darkMode .dark{
+    background-color: var(--black);
+}
+
+.darkMode .darkText{
+    color: var(--white);
+}
+
+.darkMode{
+    background-color: #002136;
+}
+
+.darkMode #accordion{
+    background-color: var(--black);
+}
+
+
+
+
+.modal{
+    position: fixed;
+    z-index:999;
+    padding-top: 10px;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modalContent{
+    position: relative;
+    background-color: var(--white);
+    margin: auto;
+    padding: 60px 90px;
+    width: 50%;
+    border-radius: 33px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.close{
+    font-size: 70px;
+    color: var(--darkblue);
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.modalContent h4{
+    font-size: 70px;
+    line-height: 80px;
+    font-weight: bold;
+}
+
+.modalContent p{
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.modalForm{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    background-color: #68d6f725;
+    margin-top: 30px;
+}
+
+.formItem{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.formItem p{
+    font-size: 18px;
+}
+
+.checkbox{
+    margin-left: 20px;
+    margin-right: 60px;
+    position: relative;
+    background-color: var(--white);
+    border: 3px solid var(--darkblue);
+    width: 42px;
+    height: 42px;
+    border-radius: 15px;
+}
+
+/*algemene manier van img in het midden zetten*/
+.check{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+}
+
+.check.checked{
+    opacity: 1;
+}
+
+
+
+.navbar{
+    overflow: hidden;
+    background-color: var(--white);
+    box-shadow: 0px 0.5px 15px #27272750;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.navbarContent{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0px;
+}
+
+.navbarLinks{
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+
+.navbarLinks a{
+    font-weight: 500;
+    color: var(--black);
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.buttonHolder{
+    position: relative;
+    width: auto;
+    height: auto;
+}
+
+.toggleButton{
+    width: 78px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+input[type="checkbox"]{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+/*de background*/
+#themeSwitch span{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+    opacity: 1;
+    background-color: var(--lightblue);
+    border-radius: 40px;
+    transition: 0.2s ease background-color, 0.2s ease opacity;
+}
+
+/*de switch*/
+#themeSwitch span:before,#themeSwitch span:after{
+    content: '';
+    position: absolute;
+    top: 3px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    transition: 0.5s ease transform, 0.2s ease background-color;
+}
+
+/*dit is de cirklel die zorgt dat de maan ontstaat*/
+#themeSwitch span:before{
+    background-color: var(--lightblue);
+    transform: translate(-34px,0px);
+    z-index: 1;
+}
+
+/*dit is de ronde button in lightmode*/
+#themeSwitch span:after{
+    background-color: var(--white);
+    transform: translate(8px,0px);
+    z-index: 0;
+}
+
+/*deze cirkel zorgt dat er een maan ontstaat in darkmode*/
+#themeSwitch input[type="checkbox"]:checked + span:before{
+    transform: translate(34px,-5px);
+}
+
+/*dit is de ronde button in darkmode*/
+#themeSwitch input[type="checkbox"]:checked + span:after{
+    transform: translate(40px,0px);
+}
+
+
+.header{
+    margin-top: 200px;
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headerText{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.headerText h1{
+    font-weight: bold;
+    font-size: 90px;
+    line-height: 80px;
+}
+
+.headerText p{
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.headerText button{
+    padding: 20px 50px;
+    background-color: var(--lightblue);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 33px;
+    border: none;
+    box-shadow: 0px 5px 16px #68d6f77e;
+}
+
+.blueText{
+    color: var(--darkblue);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #68d6f77a 65%);
+}
+
+#heroImg{
+    max-width: 100%;
+}
+
+.headerPhotos{
+    position: relative;
+}
+
+.headerCard{
+    background-color: var(--white);
+    box-shadow: 0px 0px 15px #004D7E40;
+    width: 190px;
+    height: 190px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+
+}
+
+.headerCard h6{
+    font-weight: 600;
+    color: var(--darkblue);
+    margin-top: 15px;
+    font-size: 24px;
+}
+
+#leerCard{
+    top: -60px;
+    left: -100px;
+    transform: rotateZ(-10deg);
+}
+
+#codeerCard{
+    left: 80px;
+    bottom: -170px;
+    transform: rotateZ(-5deg);
+}
+
+#speelCard{
+    right: -80px;
+    bottom: -100px;
+    transform: rotateZ(5deg);
+}
+
+.team{
+    margin-top: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.teamText{
+    width: 45%;
+    color: var(--black);
+}
+
+.teamText h3{
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.teamText p{
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.teamList{
+    width: auto;
+    height: auto;
+    background-color: (--white) !important;
+    box-shadow: 0px 0px 15px #004D7E40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 33px;
+}
+
+.teamMember{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--gray);
+    padding: 10px 40px;
+}
+
+#firstMember{
+    margin-top: 40px;
+}
+
+.teamMember img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.memberText{
+    margin-left: 25px;
+    font-weight: 600;
+}
+
+.memberText h4{
+    color: var(--darkblue);
+    margin-bottom: 10px;
+}
+
+.memberText h5{
+    color: var(--lightblue);
+}
+
+.teamCta{
+    width: 75%;
+    border-radius: 10px;
+    background-color: var(--lightblue);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 25px 30px;
+}
+
+.teamCta h4{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.teamCta button{
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ffffff40;
+    border: none;
+    border-radius: 15px;
+    padding: 12px 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+.videos{
+    margin-top: 150px;
+
+}
+
+.videosText{
+    color: var(--black);
+}
+
+.videosText h3{
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: bold;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+#accordion{
+    max-width: 1080px;
+    margin: 0 auto;
+    background-color: var(--white);
+    box-shadow: 0px 0px 15px #004D7E40;
+    padding: 25px;
+    border-radius: 33px;
+}
+
+#accordion h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 30px 60px;
+    text-align: left;
+    background-color: #68d6f725;
+    color: var(--darkblue);
+    position: relative;
+}
+
+.ui-state-default{
+    position: relative;
+}
+
+.ui-state-active{
+    border: none;
+    position: relative;
+}
+
+.pijl{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    margin: 15px 10px;
+    transform: rotateZ(0deg);
+    transition: 0.3s;
+}
+
+.checkmark{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    margin: 15px 10px;
+    left: auto;
+    right: 15px;
+    opacity: 0;
+}
+
+.checkmark.visible{
+    opacity: 1;
+}
+
+.ui-state-active .pijl{
+    transform: rotateZ(90deg);
+}
+
+
+footer {
+    background-image: url(../assets/footer-image@2x.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100vw;
+    height: auto;
+    padding: 120px 0px;
+    background-repeat: no-repeat;
+    margin-top: 150px;
+}
+
+.footer {
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.footer h2 {
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 70px;
+    margin-bottom: 20px;
+   
+}
+
+.footer p {
+    font-weight: 500;
+    margin-bottom: 60px;
+}
+
+.footer a{
+    padding: 20px 50px;
+    background-color: var(--lightblue);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 33px;
+    border: none;
+    box-shadow: 0px 5px 16px #68d6f77e;
+    text-decoration: none;
+}
+
+
+
+
+
+/*grotere schermen*/
+@media (min-width: 1920px) {
+
+    .navbarContent{
+        width: 80%
+    }
+
+    .header{
+        width: 900px;
+        margin-top: 240px;
+    }
+}
+
+@media (max-width: 1440px){
+    .modalContent{
+        width: 80%;
+    }
+}
+
+
+@media (max-width: 1175px){
+
+    #accordion{
+        max-width: 900px;
+    }
+
+    .headerText h1 {
+        font-size: 75px;
+        line-height: 85px;
+    }
+
+    .teamText h3, .videosText h3, .footer h2{
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    .headerCard{
+        width: 150px;
+        height: 150px;
+    }
+
+    .headerCard img{
+        transform: scale(0.8);
+    }
+
+    .headerCard h6{
+        margin-top: 5px;
+        font-size: 20px;
+    }
+
+    #codeerCard{
+        bottom: -50px;
+    }
+
+    #leerCard{
+        left: -20px;
+        top: -40px;
+    }
+
+    #speelCard{
+        right: 60px;
+        bottom: -30px;
+    }
+
+}
+
+
+@media (max-width: 900px){
+
+    .team{
+        flex-direction: column;
+        margin-top: 200px;
+    }
+
+    .teamList{
+        width: 80%;
+    }
+
+    .teamMember{
+        width: 80%;
+
+    }
+
+    .teamText{
+        order: -1;
+        width: 80%;
+        margin-bottom: 50px;
+    }
+
+    .videosText h3{
+        text-align: left;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    #accordion{
+        max-width: 80%;
+        margin-top: 50px;
+    }
+
+    .player iframe{
+        height: 500px !important;
+    }
+
+    .ui-accordion-content-active{
+        height: unset !important;
+    }
+
+    .modalForm{
+        width: 80%;
+    }
+
+    .modalContent{
+        width: 70%;
+    }
+
+
+
+}
+
+
+@media (max-width: 768px){
+
+    .navbarLinks{
+        width: 60%;
+    }
+
+    .headerCard{
+        position: relative;
+        transform: rotateZ(0deg) !important;
+        top: unset !important;
+        left: unset !important;
+        right: unset !important;
+        bottom: unset !important;
+    }
+
+    .headerCards{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0 auto;
+        width: 80%;
+        margin-top: -50px;
+    }
+
+
+    .headerText h1{
+        font-size: 65px;
+        line-height: 75px;
+    }
+
+    .header, .team, #accordion {
+        max-width: 90%;
+    }
+
+    .teamText, .teamList{
+        width: 100%;
+    }
+
+    .footer h2{
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .modalForm{
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 650px){
+
+    .headerCards{
+        width: 100%;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 600px){
+    
+    .modalContent{
+        padding: 30px 45px;
+        width: 80%;
+        padding: 5% auto;
+    }
+
+    .modalContent h4{
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    .modalContent p{
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .checkbox{
+        margin-right: 20px;
+    }
+
+}
+
+
+
+@media (max-width: 550px){
+
+    .navbarLogo{
+        display: none;
+    }
+
+    .navbarLinks{
+        width: 80%;
+    }
+
+    .headerCards{
+        flex-direction: column;
+        row-gap: 25px;
+        margin-top: -30px;
+    }
+
+    .headerCard{
+        width: 50%;
+        margin: 0 auto;
+    }
+
+}
+
+@media (max-width: 500px) {
+    
+    .navbarLinks a{
+        font-size: 15px;
+    }
+
+    .navbarLinks{
+        width: 60%;
+    }
+
+    .header{
+        margin-top: 150px;
+    }
+
+    .header h1{
+        font-size: 55px;
+        line-height: 65px;
+    }
+
+    .header p{
+        font-size: 20px;
+    }
+
+    .headerCard{
+        width: 80%;
+    }
+
+    .teamText h3, .videosText h3{
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .footer h2{
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .footer p{
+        max-width: 80%;
+        margin: 0 auto;
+        margin-bottom: 60px !important;
+    }
+
+    .player iframe{
+        height: 30vh !important;
+    }
+
+    .modalContent{
+        padding: 60px 20px;
+        width: 85%;
+    }
+
+}
+
+@media (max-width: 450px){
+    .navbarContent{
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    .navbarLinks{
+        width: 90%;
+        order: 2;
+    }
+
+    .team{
+        margin-top: 150px;
+    }
+
+    .videosText h3, .teamText h3{
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .teamMember{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .memberText{
+        margin-left: 0px;
+        margin: 20px 0px;
+    }
+
+    .teamCta{
+        text-align: center;
+    }
+
+    .teamCta button{
+        display: inline;
+        margin-top: 25px;
+    }
+
+    .headerText h1{
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .checkbox{
+        width: 35px;
+        height: 35px;
+        border-radius: 10px;
+        margin: 0px 15px;
+    }
+
+    .formItem p{
+        font-size: 16px;
+        line-height: 24px;
+        text-align: left;
+    }
+
+    .close{
+        top: 10px;
+    }
+
+}
+

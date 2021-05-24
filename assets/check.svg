@@ -1,0 +1,6 @@
+<svg id="done_check" data-name="done check" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <circle id="Ellipse_6" data-name="Ellipse 6" cx="25" cy="25" r="25" fill="#119100"/>
+  <g id="done" transform="translate(11.439 15.492)">
+    <path id="Path_20" data-name="Path 20" d="M19.336,40.317a1.38,1.38,0,0,0,.941.37,1.272,1.272,0,0,0,.941-.4L37.382,24.119A1.354,1.354,0,1,0,35.467,22.2L20.277,37.46,13.119,30.3A1.354,1.354,0,0,0,11.2,32.218Z" transform="translate(-10.8 -21.8)" fill="#fff"/>
+  </g>
+</svg>
